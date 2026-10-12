@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>EdyCris</title>
+  <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projetos em drywall, forros, sancas, divisórias, painéis, nichos e acabamentos personalizados." />
+  <meta name="theme-color" content="#17191c" />
+
+  <title>EdyCris | Drywall, Sancas e Acabamentos</title>
+
+  <style>
+    :root {
+      --bg: #f6f5f2;
+      --surface: #ffffff;
+      --surface-2: #eceae5;
+      --text: #17191c;
+      --muted: #666b73;
+      --dark: #111316;
+      --accent: #c9973d;
+      --accent-dark: #9d7129;
+      --line: #dedbd4;
+      --success: #1d7a4a;
+      --shadow: 0 18px 50px rgba(17, 19, 22, 0.10);
+      --radius: 22px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section--dark {
+      background: var(--dark);
+      color: white;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 14px;
+    }
+
+    .section--dark .eyebrow {
+      color: #e7ba68;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 5.8rem);
+      max-width: 900px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      max-width: 780px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    .lead {
+      margin-top: 22px;
+      max-width: 710px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .section--dark .lead {
+      color: #bfc3c8;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn--primary {
+      background: var(--accent);
+      color: #111316;
+    }
+
+    .btn--primary:hover {
+      background: #d7aa59;
+    }
+
+    .btn--outline {
+      border-color: rgba(255,255,255,0.35);
+      color: white;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn--outline:hover {
+      background: rgba(255,255,255,0.11);
+    }
+
+    .header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      background: rgba(17, 19, 22, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+
+    .brand--with-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand__logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.24);
+      display: grid;
+      place-items: center;
+      font-size: .62rem;
+      letter-spacing: .08em;
+      color: #bfc4c9;
+      background: rgba(255,255,255,.06);
+      flex: 0 0 auto;
+    }
+
+    .brand__name {
+      display: inline-block;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: #e9eaeb;
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .nav__links a:hover {
+      color: var(--accent);
+    }
+
+    .nav__toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 1.6rem;
+      padding: 8px;
+    }
+
+    .hero {
+      min-height: 100svh;
+      color: white;
+      display: grid;
+      align-items: end;
+      position: relative;
+      isolation: isolate;
+      background:
+        linear-gradient(90deg, rgba(8,9,11,0.90) 0%, rgba(8,9,11,0.72) 42%, rgba(8,9,11,0.25) 100%),
+        linear-gradient(135deg, #20242a 0%, #3b3f43 48%, #17191c 100%);
+      padding: 150px 0 86px;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(3px);
+    }
+
+    .hero::before {
+      width: 560px;
+      height: 560px;
+      right: -190px;
+      top: 110px;
+      background: radial-gradient(circle, rgba(201,151,61,0.26), transparent 68%);
+    }
+
+    .hero::after {
+      width: 420px;
+      height: 420px;
+      left: 45%;
+      bottom: -220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 68%);
+    }
+
+    .hero__content {
+      max-width: 920px;
+    }
+
+    .hero__kicker {
+      color: #d8dde2;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      color: #d0d3d6;
+      margin-top: 24px;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .hero__stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 760px;
+      margin-top: 58px;
+    }
+
+    .hero__stat {
+      padding: 18px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .hero__stat strong {
+      display: block;
+      font-size: 1.35rem;
+      color: white;
+    }
+
+    .hero__stat span {
+      color: #aeb4ba;
+      font-size: 0.9rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .services {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 48px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      min-height: 255px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card__number {
+      color: var(--accent-dark);
+      font-weight: 900;
+      font-size: 0.83rem;
+      margin-bottom: 30px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      margin-top: 13px;
+    }
+
+    .possibilities {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 52px;
+    }
+
+    .possibility-card {
+      background: #1b1e22;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .photo-placeholder {
+      aspect-ratio: 16/10;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
+        repeating-linear-gradient(
+          45deg,
+          #292d32,
+          #292d32 12px,
+          #25292e 12px,
+          #25292e 24px
+        );
+      display: grid;
+      place-items: center;
+      color: #aeb4ba;
+      padding: 26px;
+      text-align: center;
+      position: relative;
+    }
+
+    .photo-placeholder::before {
+      content: "FOTO";
+      width: 72px;
+      height: 72px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 10px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      color: #e2e5e8;
+    }
+
+    .photo-placeholder span {
+      display: block;
+      max-width: 280px;
+      font-size: 0.92rem;
+    }
+
+    .possibility-card__body {
+      padding: 25px;
+    }
+
+    .possibility-card__body p {
+      color: #afb4ba;
+      margin-top: 9px;
+    }
+
+    .projects-toolbar {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .filter-btn.active {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+
+    .gallery {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 28px;
+    }
+
+    .gallery-item {
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+
+    .gallery-item .photo-placeholder {
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item__meta {
+      padding: 18px 20px 20px;
+    }
+
+    .gallery-item__meta span {
+      color: var(--accent-dark);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    .gallery-item__meta h3 {
+      margin-top: 6px;
+    }
+
+    .comparison {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .comparison__side {
+      min-height: 420px;
+      display: grid;
+      align-items: end;
+      padding: 28px;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.05)),
+        repeating-linear-gradient(
+          45deg,
+          #34383d,
+          #34383d 14px,
+          #2d3136 14px,
+          #2d3136 28px
+        );
+      color: white;
+    }
+
+    .comparison__side:last-child {
+      background:
+        linear-gradient(to top, rgba(0,0,0,.60), rgba(0,0,0,.02)),
+        repeating-linear-gradient(
+          -45deg,
+          #474c51,
+          #474c51 14px,
+          #3d4247 14px,
+          #3d4247 28px
+        );
+    }
+
+    .comparison__side strong {
+      font-size: 1.45rem;
+    }
+
+    .steps {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 46px;
+    }
+
+    .step {
+      padding: 26px 0;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .step__number {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      margin-bottom: 18px;
+    }
+
+    .step p {
+      color: #b6bbc1;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about__box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+
+    .about__list {
+      list-style: none;
+      display: grid;
+      gap: 15px;
+    }
+
+    .about__list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .about__list li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 900;
+    }
+
+    .quote {
+      background: var(--accent);
+      color: var(--text);
+    }
+
+    .quote__layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .quote .eyebrow {
+      color: #493211;
+    }
+
+    .quote .eyebrow::before {
+      background: #493211;
+    }
+
+    .quote p {
+      margin-top: 18px;
+      color: #4c3a1d;
+    }
+
+    .form {
+      background: var(--surface);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 18px 50px rgba(35, 24, 7, .16);
+    }
+
+    .form__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field--full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #33373d;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #d8d5cf;
+      border-radius: 13px;
+      background: white;
+      color: var(--text);
+      padding: 14px 15px;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--accent-dark);
+      box-shadow: 0 0 0 4px rgba(201,151,61,.16);
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .form__note {
+      color: #6b6459;
+      font-size: 0.83rem;
+      max-width: 360px;
+    }
+
+    .form__status {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      display: none;
+      font-size: 0.9rem;
+    }
+
+    .form__status.show {
+      display: block;
+    }
+
+    .form__status.success {
+      background: #e9f5ee;
+      color: #155f39;
+    }
+
+    .form__status.warning {
+      background: #fff4d7;
+      color: #73530e;
+    }
+
+    .footer {
+      background: #0d0f11;
+      color: #d8dbde;
+      padding: 60px 0 30px;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr .8fr;
+      gap: 50px;
+    }
+
+    .footer h3 {
+      color: white;
+      margin-bottom: 14px;
+    }
+
+    .footer p,
+    .footer a {
+      color: #9ca2a8;
+    }
+
+    .footer a:hover {
+      color: var(--accent);
+    }
+
+    .footer__links {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer__bottom {
+      margin-top: 50px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      color: #7f868d;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+
+    .btn__icon,
+    .contact-link__icon,
+    .floating-cta svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex: 0 0 auto;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 900;
+      display: grid;
+      gap: 12px;
+    }
+
+    .floating-cta {
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,.22);
+      transition: transform .2s ease;
+    }
+
+    .floating-cta:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    .floating-cta--whatsapp {
+      background: #25d366;
+    }
+
+    .floating-cta--instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav__toggle {
+        display: block;
+      }
+
+      .nav__links {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 86px;
+        display: none;
+        padding: 20px;
+        background: #17191c;
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+      }
+
+      .nav__links.open {
+        display: flex;
+      }
+
+      .services,
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about,
+      .quote__layout {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 28px), var(--container));
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 145px;
+      }
+
+      .hero__stats,
+      .services,
+      .possibilities,
+      .gallery,
+      .steps,
+      .comparison,
+      .form__grid,
+      .footer__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison__side {
+        min-height: 300px;
+      }
+
+      .field--full {
+        grid-column: auto;
+      }
+
+      .hero__actions .btn,
+      .form__footer .btn {
+        width: 100%;
+      }
+      .social-float {
+        right: 16px;
+        bottom: 16px;
+        gap: 10px;
+      }
+
+      .floating-cta {
+        width: 54px;
+        height: 54px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .photo {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item .photo {
+  aspect-ratio: 4 / 3;
+}
+
+.photo img,
+.photo video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comparison__side {
+  position: relative;
+  isolation: isolate;
+}
+
+.comparison__side img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* escurece a parte de baixo para o texto "Antes/Depois" ficar legível */
+.comparison__side::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,.05));
+  z-index: -1;
+}
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand brand--with-logo" href="#inicio" aria-label="Ir para o início">
+        <span class="brand__name">EDY<span>CRIS</span></span>
+      </a>
+
+      <button class="nav__toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="nav__links" aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#possibilidades">Possibilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#orcamento" class="btn btn--primary">Orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero__content reveal">
+          <div class="hero__kicker">EdyCris • Drywall • Forros • Sancas • Acabamentos</div>
+
+          <h1>
+            Ambientes que ganham <span>forma, acabamento e personalidade.</span>
+          </h1>
+
+          <p>
+            Soluções em drywall para residências, comércios e empresas.
+            Criamos forros, sancas, divisórias, painéis, nichos e projetos personalizados.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#orcamento">Solicitar orçamento</a>
+            <a class="btn btn--outline" href="#projetos">Ver trabalhos</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <strong>Projetos sob medida</strong>
+              <span>Planejados de acordo com cada ambiente.</span>
+            </div>
+            <div class="hero__stat">
+              <strong>Acabamento</strong>
+              <span>Foco em alinhamento, detalhes e resultado final.</span>
+            </div>
+            <div class="hero__stat">
+              <strong>Residencial e comercial</strong>
+              <span>Soluções para diferentes tipos de espaços.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow">Serviços</span>
+          <h2>Soluções em drywall para transformar cada ambiente.</h2>
+          <p class="lead">
+            Do rebaixamento de teto às divisórias e detalhes decorativos,
+            o drywall permite criar ambientes funcionais, modernos e personalizados.
+          </p>
+        </div>
+
+        <div class="grid services">
+          <article class="service-card reveal">
+            <div class="service-card__number">01</div>
+            <h3>Forro de Drywall</h3>
+            <p>Rebaixamento de teto para acabamento, iluminação e valorização do ambiente.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__number">02</div>
+            <h3>Sanca Aberta</h3>
+            <p>Acabamento com abertura para iluminação indireta, criando um efeito elegante e aconchegante.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__number">03</div>
+            <h3>Sanca Invertida</h3>
+            <p>Projeto em que a iluminação é direcionada para as paredes e detalhes do ambiente.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__number">04</div>
+            <h3>Sanca Fechada</h3>
+            <p>Solução discreta para compor o rebaixamento do teto e criar um acabamento mais uniforme.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__number">05</div>
+            <h3>Divisórias em Drywall</h3>
+            <p>Criação e reorganização de ambientes internos com execução limpa e versátil.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__number">06</div>
+            <h3>Painéis, Nichos e Cortineiros</h3>
+            <p>Detalhes decorativos e funcionais para salas, quartos, escritórios e outros espaços.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="possibilidades">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow">Possibilidades</span>
+          <h2>Veja o que pode ser criado com drywall.</h2>
+        </div>
+
+        <div class="grid possibilities">
+          <article class="possibility-card reveal">
+            <div class="photo">
+              <img src="img/forroRebaixado.jpg" alt="">
+            </div>
+            <div class="possibility-card__body">
+              <h3>Sanca Aberta</h3>
+              <p>Ideal para criar iluminação indireta e destacar o desenho do teto.</p>
+            </div>
+          </article>
+
+          <article class="possibility-card reveal">
+            <div class="photo">
+             <img src="img/ilhaFlutanteDois.jpg" alt="">
+            </div>
+            <div class="possibility-card__body">
+              <h3>Sanca Invertida</h3>
+              <p>Uma opção contemporânea para valorizar paredes, iluminação e composição do ambiente.</p>
+            </div>
+          </article>
+
+          <article class="possibility-card reveal">
+            <div class="photo">
+             <img src="img/forroRebaixadoQuatro.jpg" alt="">
+            </div>
+            <div class="possibility-card__body">
+              <h3>Forro Rebaixado</h3>
+              <p>Permite organizar iluminação, esconder instalações e criar um visual mais refinado.</p>
+            </div>
+          </article>
+
+          <article class="possibility-card reveal">
+            <div class="photo">
+              <img src="img/personalizado.jpg" alt="">
+            </div>
+            <div class="possibility-card__body">
+              <h3>Projetos Personalizados</h3>
+              <p>Rebaixamento de teto com parede drywall sobreposta a alvenaria, soluções pensadas para cada espaço.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow">Projetos realizados</span>
+          <h2>Seu trabalho é a melhor vitrine.</h2>
+        </div>
+
+        <div class="projects-toolbar reveal" aria-label="Filtros da galeria">
+          <button class="filter-btn active" type="button" data-filter="todos">Todos</button>
+          <button class="filter-btn" type="button" data-filter="sancas">Sancas</button>
+          <button class="filter-btn" type="button" data-filter="forros">Forros</button>
+          <button class="filter-btn" type="button" data-filter="divisorias">Divisórias</button>
+          <button class="filter-btn" type="button" data-filter="personalizados">Personalizados</button>
+        </div>
+
+        <div class="grid gallery">
+          <article class="gallery-item reveal" data-category="sancas">
+            <div class="photo"><img src="img/SancaIndiretaDois.jpg" alt=""></div>
+            <div class="gallery-item__meta">
+              <span>Sancas</span>
+              <h3>Sanca com iluminação indireta</h3>
+            </div>
+          </article>
+
+          
+
+          <article class="gallery-item reveal" data-category="forros">
+            <div class="photo"><img src="img/forrroRebaixadoDois.jpg" alt=""></div>
+            <div class="gallery-item__meta">
+              <span>Forros</span>
+              <h3>Forro rebaixado</h3>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="forros">
+            <div class="photo"><img src="img/forroRebaixadoDois.jpg" alt=""></div>
+            <div class="gallery-item__meta">
+              <span>Forros</span>
+              <h3>Forro rebaixado</h3>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="forros">
+            <div class="photo"><img src="img/forroRebaixadoTres.jpg" alt=""></div>
+            <div class="gallery-item__meta">
+              <span>Forros</span>
+              <h3>Forro rebaixado</h3>
+            </div>
+          </article>
+
+
+          <article class="gallery-item reveal" data-category="divisorias">
+            <div class="photo"><img src="img/divisorias.jpg" alt=""></div>
+
+            <div class="gallery-item__meta">
+              <span>Personalizados</span>
+              <h3>Divisórias</h3>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="personalizados">
+            <div class="photo"><img src="img/painelDecDois.jpg" alt=""></div>
+            <div class="gallery-item__meta">
+              <span>Personalizados</span>
+              <h3>Painel decorativo</h3>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="sancas">
+            <div class="photo"><img src="img/ilhaFlutante.jpg" alt="Sanca invertida com iluminação voltada para as paredes" loading="lazy" /></div>
+            <div class="gallery-item__meta">
+              <span>Sancas</span>
+              <h3>Sanca invertida</h3>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="personalizados">
+            <div class="photo"><img src="img/painelDec.jpg" alt=""></div>
+            <div class="gallery-item__meta">
+              <span>Personalizados</span>
+              <h3>Nicho e acabamento</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow">Antes e depois</span>
+          <h2>A transformação do ambiente.</h2>
+        </div>
+
+        <div class="comparison reveal">
+          <div class="comparison__side">
+            <img src="img/antes.jpg" alt="Ambiente antes do serviço de drywall" loading="lazy" />
+            <strong>Antes</strong>
+          </div>
+          <div class="comparison__side">
+            <img src="img/depois.jpg" alt="Ambiente depois do serviço de drywall" loading="lazy" />
+            <strong>Depois</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container about">
+        <div class="reveal">
+          <span class="eyebrow">Sobre a empresa</span>
+          <h2>Qualidade no projeto, cuidado na execução.</h2>
+          <p class="lead">
+            A EdyCris atende projetos residenciais e comerciais,
+            com soluções em drywall pensadas para cada ambiente.
+          </p>
+          <p class="lead">
+            A proposta é unir funcionalidade, acabamento e atenção aos detalhes em cada projeto,
+            desde forros e sancas até divisórias, painéis, nichos e soluções personalizadas.
+          </p>
+        </div>
+
+        <aside class="about__box reveal">
+          <h3>Por que escolher nosso trabalho</h3>
+          <ul class="about__list" style="margin-top: 22px;">
+            <li>Projetos personalizados para cada ambiente.</li>
+            <li>Atenção aos detalhes e ao acabamento.</li>
+            <li>Atendimento para projetos residenciais e comerciais.</li>
+            <li>Organização durante a execução do serviço.</li>
+            <li>Orçamento de acordo com a necessidade do cliente.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow">Como funciona</span>
+          <h2>Do primeiro contato à entrega do projeto.</h2>
+        </div>
+
+        <div class="grid steps">
+          <article class="step reveal">
+            <div class="step__number">PASSO 01</div>
+            <h3>Contato</h3>
+            <p>Você conta o que deseja fazer e envia as primeiras informações do ambiente.</p>
+          </article>
+
+          <article class="step reveal">
+            <div class="step__number">PASSO 02</div>
+            <h3>Avaliação</h3>
+            <p>Analisamos o serviço, medidas, possibilidades e necessidades do projeto.</p>
+          </article>
+
+          <article class="step reveal">
+            <div class="step__number">PASSO 03</div>
+            <h3>Orçamento</h3>
+            <p>Preparamos a proposta com base no tipo de serviço e nas características do ambiente.</p>
+          </article>
+
+          <article class="step reveal">
+            <div class="step__number">PASSO 04</div>
+            <h3>Execução</h3>
+            <p>O projeto é executado conforme o que foi combinado para alcançar o resultado esperado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote" id="orcamento">
+      <div class="container quote__layout">
+        <div class="reveal">
+          <span class="eyebrow">Orçamento</span>
+          <h2>Tem um projeto em mente?</h2>
+          <p>
+            Preencha os dados ao lado e envie sua solicitação. O formulário abrirá uma mensagem pronta diretamente no WhatsApp da EdyCris.
+          </p>
+        </div>
+
+        <form class="form reveal" id="budgetForm">
+          <div class="form__grid">
+            <div class="field">
+              <label for="name">Nome</label>
+              <input id="name" name="name" type="text" autocomplete="name" required placeholder="Seu nome" />
+            </div>
+
+          
+
+            <div class="field">
+              <label for="city">Cidade</label>
+              <input id="city" name="city" type="text" autocomplete="address-level2" required placeholder="Sua cidade" />
+            </div>
+
+            <div class="field">
+              <label for="service">Serviço desejado</label>
+              <select id="service" name="service" required>
+                <option value="">Selecione</option>
+                <option>Forro de Drywall</option>
+                <option>Sanca Aberta</option>
+                <option>Sanca Invertida</option>
+                <option>Sanca Fechada</option>
+                <option>Divisórias</option>
+                <option>Painel / Nicho / Cortineiro</option>
+                <option>Projeto personalizado</option>
+                <option>Outro</option>
+              </select>
+            </div>
+
+            <div class="field field--full">
+              <label for="message">Conte um pouco sobre o projeto</label>
+              <textarea id="message" name="message" placeholder="Ex.: sala com aproximadamente 20 m², quero rebaixamento de teto e sanca com iluminação indireta."></textarea>
+            </div>
+          </div>
+
+          <div class="form__footer">
+            <button class="btn btn--primary" type="submit">
+              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.9 11.9 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.16-3.45-8.42ZM12.07 21.8h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-3.76.99 1-3.66-.23-.38a9.86 9.86 0 0 1-1.5-5.25c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.12 1.03 6.98 2.9a9.82 9.82 0 0 1 2.9 7c0 5.46-4.44 9.9-9.9 9.9Zm5.43-7.42c-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15-.2.3-.77.98-.95 1.18-.17.2-.35.22-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.68-2.08-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.67-1.63-.92-2.23-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.53.07-.8.38-.27.3-1.03 1-1.03 2.43 0 1.43 1.05 2.82 1.2 3.02.15.2 2.06 3.14 5 4.4.7.3 1.24.48 1.67.62.7.22 1.34.19 1.84.12.56-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.13-.27-.2-.57-.35Z"/>
+              </svg>
+              Enviar pelo WhatsApp
+            </button>
+          </div>
+
+          <div class="form__status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <h3>EDYCRIS</h3>
+          <p>
+            Drywall, forros, sancas, divisórias e acabamentos personalizados
+            para projetos residenciais e comerciais em todo o estado de São Paulo.
+          </p>
+        </div>
+
+        <div>
+          <h3>Navegação</h3>
+          <ul class="footer__links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#possibilidades">Possibilidades</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#orcamento">Orçamento</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Contato</h3>
+          <ul class="footer__links">
+            <li>
+            
+            <li>
+              <span>Atendimento em todo o estado de São Paulo</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> EdyCris. Todos os direitos reservados.</span>
+     
+      </div>
+    </div>
+  </footer>
+
+  <div class="social-float">
+    <a
+      class="floating-cta floating-cta--instagram"
+      href="https://www.instagram.com/_edycris_/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir Instagram da EdyCris"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7Zm0 2h10c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3Zm11.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/>
+      </svg>
+    </a>
+
+    <a
+      class="floating-cta floating-cta--whatsapp"
+      href="https://wa.me/5511934210348"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar com a EdyCris pelo WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.9 11.9 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.16-3.45-8.42ZM12.07 21.8h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-3.76.99 1-3.66-.23-.38a9.86 9.86 0 0 1-1.5-5.25c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.12 1.03 6.98 2.9a9.82 9.82 0 0 1 2.9 7c0 5.46-4.44 9.9-9.9 9.9Zm5.43-7.42c-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15-.2.3-.77.98-.95 1.18-.17.2-.35.22-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.68-2.08-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.67-1.63-.92-2.23-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.53.07-.8.38-.27.3-1.03 1-1.03 2.43 0 1.43 1.05 2.82 1.2 3.02.15.2 2.06 3.14 5 4.4.7.3 1.24.48 1.67.62.7.22 1.34.19 1.84.12.56-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.13-.27-.2-.57-.35Z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    /*
+      PERSONALIZAÇÃO IMPORTANTE
+      -------------------------
+      Coloque abaixo o número do WhatsApp da empresa com DDI e DDD,
+      somente números. Exemplo: 5511999999999
+
+      Número oficial da EdyCris configurado abaixo.
+    */
+    const WHATSAPP_NUMBER = "5511934210348";
+
+    const toggle = document.querySelector(".nav__toggle");
+    const navLinks = document.querySelector(".nav__links");
+
+    toggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav__links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "☰";
+      });
+    });
+
+    document.querySelectorAll(".filter-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        document.querySelectorAll(".filter-btn").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        document.querySelectorAll(".gallery-item").forEach((item) => {
+          const show = filter === "todos" || item.dataset.category === filter;
+          item.hidden = !show;
+        });
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.getElementById("budgetForm");
+    const status = document.getElementById("formStatus");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const data = new FormData(form);
+      const name = data.get("name").trim();
+      const city = data.get("city").trim();
+      const service = data.get("service").trim();
+      const message = data.get("message").trim();
+
+      const text = [
+        "Olá EdyCris,",
+        "",
+        `me chamo ${name},`,
+        `sou de ${city},`,
+        `gostaria de um orçamento de ${service}.`,
+        message ? `Detalhes: ${message}` : ""
+      ].filter(Boolean).join("\n");
+
+      status.className = "form__status";
+
+      if (!WHATSAPP_NUMBER) {
+        status.textContent =
+          "O formulário está funcionando, mas o número de WhatsApp da empresa ainda precisa ser configurado no código.";
+        status.classList.add("show", "warning");
+        return;
+      }
+
+      const whatsappUrl =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+      status.textContent = "Abrindo o WhatsApp...";
+      status.classList.add("show", "success");
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    });
+  </script>
+</body>
+</html>
